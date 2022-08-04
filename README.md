@@ -1,5 +1,11 @@
 # single-page-nginx
 
+### Usage
+
+```shell
+docker run -it -p 8080:80 -v ${PWD}:/html juxuny/single-page-nginx:v1.0.1
+```
+
 ```conf
 server {
   listen 80;
@@ -11,7 +17,7 @@ server {
   gzip_vary on;
   gzip_disable "MSIE [1-6]\.";
 
-  root /usr/share/nginx/html;
+  root /html;
 
   location / {
       try_files $uri $uri/ @router;
